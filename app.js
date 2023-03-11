@@ -16,9 +16,7 @@ const PORT = process.env.PORT || 8000; // env port ucun
 
 async function start() {
   try {
-    await mongoose.connect(process.env.MONGO_URL, {
-      useNewUrlParser: true,
-    }).then(() => console.log('db: ok')).catch(() => console.log('db: bad'));
+    await mongoose.connect(process.env.MONGO_URL).then(() => console.log('db: ok')).catch(() => console.log('db: bad'));
     app.listen(PORT, () => console.log(`Server: http://localhost:${PORT}`));
   } catch (error) {
     console.log(error);
